@@ -7,6 +7,7 @@ import { resetPassword } from "../../helper/helper";
 import { useSelector } from "react-redux";
 import { useNavigate, Navigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
+import { reset_page } from "../../config/AuthConfig";
 
 const Reset = () => {
   const { username } = useSelector((state) => state.authSlice);
@@ -27,8 +28,8 @@ const Reset = () => {
 
       toast.promise(resetPromise, {
         loading: "Updating...",
-        success: <b>Reset Successfully...!</b>,
-        error: <b>Could not Reset!</b>,
+        success: <b> {reset_page.resetSuccess} </b>,
+        error: <b> {reset_page.error} </b>,
       });
 
       resetPromise.then(function () {
@@ -37,7 +38,7 @@ const Reset = () => {
     },
   });
 
-  if (isLoading) return <h1 className="text-2xl font-bold">isLoading</h1>;
+  if (isLoading) return <h1 className="text-2xl font-bold">{reset_page.isLoading}</h1>;
   if (serverError)
     return <h1 className="text-xl text-red-500">{serverError.message}</h1>;
   if (status && status !== 201)
@@ -49,9 +50,9 @@ const Reset = () => {
       <div className="flex justify-center items-center  h-screen">
         <div className={styles.glass}>
           <div className="title flex flex-col items-center">
-            <h4 className="text-5xl font-bold">Reset</h4>
+            <h4 className="text-5xl font-bold">{reset_page.reset}</h4>
             <span className="py-4 text-xl w-2/3 text-center grey-500">
-              Enter new password.
+              {reset_page.enterNewPassword}
             </span>
           </div>
 
@@ -61,16 +62,16 @@ const Reset = () => {
                 {...formik.getFieldProps("password")}
                 className={styles.textbox}
                 type="text"
-                placeholder="New Password"
+                placeholder = {reset_page.newPassword}
               />
               <input
                 {...formik.getFieldProps("confirm_pwd")}
                 className={styles.textbox}
                 type="text"
-                placeholder="Repeat Password"
+                placeholder = {reset_page.confirmPassword}
               />
               <button className={styles.btn} type="submit">
-                Sign In
+                {reset_page.signin}
               </button>
             </div>
           </form>

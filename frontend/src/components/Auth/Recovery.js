@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import styles from "../../styles/Username.module.css";
 import { generateOTP, verifyOTP } from "../../helper/helper";
 import { useNavigate } from "react-router-dom";
+import { recovery_page } from "../../config/AuthConfig";
 
 export default function Recovery() {
   const { username } = useSelector((state) => state.authSlice);
@@ -13,8 +14,8 @@ export default function Recovery() {
   useEffect(() => {
     generateOTP(username).then((OTP) => {
       console.log(OTP);
-      if (OTP) return toast.success("OTP has been send to your email!");
-      return toast.error("Problem while generating OTP!");
+      if (OTP) return toast.success( recovery_page.otpMsgSuccess );
+      return toast.error(  recovery_page.otpMsgError);
     });
   }, [username]);
 
@@ -23,11 +24,11 @@ export default function Recovery() {
     try {
       let { status } = await verifyOTP({ username, code: OTP });
       if (status === 201) {
-        toast.success("Verify Successfully!");
+        toast.success( recovery_page.otpConfirmSuccess );
         return navigate("/reset");
       }
     } catch (error) {
-      return toast.error("Wront OTP! Check email again!");
+      return toast.error( recovery_page.optConfirmError );
     }
   }
 
@@ -36,9 +37,9 @@ export default function Recovery() {
     let sentPromise = generateOTP(username);
 
     toast.promise(sentPromise, {
-      loading: "Sending...",
-      success: <b>OTP has been send to your email!</b>,
-      error: <b>Could not Send it!</b>,
+      loading: recovery_page.sendingLabel,
+      success: <b>{ recovery_page.otpMsgSuccess }</b>,
+      error: <b>{ recovery_page.otpCouldnotSend }</b>,
     });
 
     sentPromise.then((OTP) => {
@@ -53,9 +54,9 @@ export default function Recovery() {
       <div className="flex justify-center items-center h-screen">
         <div className={styles.glass}>
           <div className="title flex flex-col items-center">
-            <h4 className="text-5xl font-bold">Recovery</h4>
+            <h4 className="text-5xl font-bold">{ recovery_page.recoveryLabel }</h4>
             <span className="py-4 text-xl w-2/3 text-center">
-              Enter OTP to recover password.
+              {recovery_page.otpInputLabel}
             </span>
           </div>
 
@@ -63,7 +64,7 @@ export default function Recovery() {
             <div className="textbox flex flex-col items-center gap-6">
               <div className="input text-center">
                 <span className="py-4 text-x w-2/3 text-center">
-                  Enter 4 digit OTP sent to your email address.
+                  {recovery_page.otpEnterComment}
                 </span>
               </div>
               <input
@@ -74,16 +75,16 @@ export default function Recovery() {
               />
 
               <button className={styles.btn} type="submit">
-                Recover
+                {recovery_page.recoveryLabel}
               </button>
             </div>
           </form>
 
           <div className="text-center py-4">
             <span className="text-gray-500">
-              Can't get OTP?{" "}
+              {recovery_page.otpResendComment}{" "}
               <button onClick={resendOTP} className={styles.link}>
-                Resend
+                {recovery_page.otpResendLabel}
               </button>
             </span>
           </div>

@@ -8,6 +8,7 @@ import { passwordValidate } from "../../helper/validate";
 import useFetch from "../../hooks/useFetch";
 import { useSelector } from "react-redux";
 import { verifyPassword } from "../../helper/helper";
+import { password_page } from "../../config/AuthConfig";
 
 const Password = () => {
   const { username } = useSelector((state) => state.authSlice);
@@ -27,8 +28,8 @@ const Password = () => {
       });
       toast.promise(loginPromise, {
         loading: "Checking...",
-        success: <b>Login Successfully...!</b>,
-        error: <b>Password Not Match!</b>,
+        success: <b>{password_page.loginSuccess}</b>,
+        error: <b> { password_page.passError } </b>,
       });
       loginPromise.then((res) => {
         let { token } = res.data;
@@ -38,7 +39,7 @@ const Password = () => {
     },
   });
 
-  if (isLoading) return <h1 className="text-2xl font-bold">isLoading</h1>;
+  if (isLoading) return <h1 className="text-2xl font-bold">{password_page.isLoading }</h1>;
   if (serverError)
     return <h1 className="text-xl text-red-500">{serverError.message}</h1>;
 
@@ -52,7 +53,7 @@ const Password = () => {
               Hello {apiData?.firstName || apiData?.username}
             </h4>
             <span className="py-4 text-xl w-2/3 text-center grey-500">
-              Explore More by connecting with us.
+              { password_page.content }
             </span>
           </div>
 
@@ -69,18 +70,18 @@ const Password = () => {
                 {...formik.getFieldProps("password")}
                 className={styles.textbox}
                 type="text"
-                placeholder="Password"
+                placeholder = { password_page.password_placeholder }
               />
               <button className={styles.btn} type="submit">
-                Sign In
+                { password_page.signin }
               </button>
             </div>
 
             <div className="text-center py-4">
               <span className="text-gray-500">
-                Forget Password?
+                { password_page.forgotPassword }
                 <Link className={styles.link} to="/recovery">
-                  Recover Now
+                  { password_page.recoveryNow }
                 </Link>
               </span>
             </div>

@@ -2,13 +2,13 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import avatar from "../../assets/profile.png";
 import logo from "../../assets/logo.png";
-import { user_name } from "../../config/AppConfig";
 import styles from "../../styles/Username.module.css";
 import { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
 import { usernameValidate } from "../../helper/validate";
 import { useDispatch } from "react-redux";
 import { setUserName } from "../../store/authSlice";
+import { user_name } from "../../config/AuthConfig";
 
 const Username = () => {
   const dispatch = useDispatch();
@@ -64,7 +64,7 @@ const Username = () => {
               <span className="text-gray-500">
               {user_name.noMember}
                 <Link className={styles.link} to="/register">
-                {user_name.register}
+                  {user_name.register}
                 </Link>
               </span>
             </div>
