@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import { registerValidation } from "../../helper/validate";
 import convertToBase64 from "../../helper/convert";
 import { registerUser } from "../../helper/helper";
+import { register_page } from "../../config/AuthConfig";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -25,9 +26,9 @@ const Register = () => {
       values = Object.assign(values, { profile: file || "" });
       let registerPromise = registerUser(values);
       toast.promise(registerPromise, {
-        loading: "Creating...",
-        success: <b>Register Successfully...!</b>,
-        error: <b>Could not Register.</b>,
+        loading: register_page.creating,
+        success: <b>{register_page.registerSuccess}</b>,
+        error: <b>{register_page.registerError}</b>,
       });
 
       registerPromise.then(function () {
@@ -49,9 +50,9 @@ const Register = () => {
       <div className="flex justify-center items-center  h-screen">
         <div className={styles.glass}>
           <div className="title flex flex-col items-center">
-            <h4 className="text-5xl font-bold">Register</h4>
+            <h4 className="text-5xl font-bold">{register_page.register}</h4>
             <span className="py-4 text-xl w-2/3 text-center grey-500">
-              Happy to join you!
+              {register_page.registerComment}
             </span>
           </div>
 
@@ -76,30 +77,30 @@ const Register = () => {
                 {...formik.getFieldProps("email")}
                 className={styles.textbox}
                 type="text"
-                placeholder="Email"
+                placeholder = {register_page.email}
               />
               <input
                 {...formik.getFieldProps("username")}
                 className={styles.textbox}
                 type="text"
-                placeholder="Username"
+                placeholder = {register_page.username}
               />
               <input
                 {...formik.getFieldProps("password")}
                 className={styles.textbox}
                 type="text"
-                placeholder="Password"
+                placeholder = {register_page.password}
               />
               <button className={styles.btn} type="submit">
-                Register
+              {register_page.register}
               </button>
             </div>
 
             <div className="text-center py-4">
               <span className="text-gray-500">
-                Already Register?
+                {register_page.alreadyRegister}
                 <Link className={styles.link} to="/">
-                  Login Now
+                  {register_page.loginNow}
                 </Link>
               </span>
             </div>

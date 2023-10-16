@@ -46,10 +46,24 @@ const recovery_page = {
     sendingLabel : "送信中..."
 }
 
+const register_page = {
+    creating : "作成しています…",
+    registerSuccess : "無事に登録完了…！",
+    registerError : "登録できませんでした。",
+    register : "登録",
+    registerComment :"ぜひご参加ください！",
+    email : "メールアドレス",
+    username : "ユーザー名",
+    password : "パスワード",
+    alreadyRegister : "すでに登録していますか?",
+    loginNow : "今すぐログイン"
+}
+
 export {
     user_name,
     password_page,
     reset_page,
-    recovery_page
+    recovery_page,
+    register_page
 };
 
