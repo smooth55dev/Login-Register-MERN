@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import avatar from "../../assets/profile.png";
+import logo from "../../assets/logo.png";
+import { user_name } from "../../config/AppConfig";
 import styles from "../../styles/Username.module.css";
 import { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
@@ -22,17 +24,23 @@ const Username = () => {
       dispatch(setUserName(values.username));
       navigate("/password");
     },
+    
   });
-
   return (
     <div className="container mx-auto">
       <Toaster position="top center" reverseOrder={false}></Toaster>
       <div className="flex justify-center items-center  h-screen">
         <div className={styles.glass}>
           <div className="title flex flex-col items-center">
-            <h4 className="text-5xl font-bold">Hello Again!</h4>
+            <h4 className="text-5xl font-bold">
+              <div className="flex">
+                ミル
+                <img className={styles.logo_img} src={logo} alt="avatar" />
+                コマ
+              </div>
+            </h4>
             <span className="py-4 text-xl w-2/3 text-center grey-500">
-              Explore More by connecting with us.
+              {user_name.content}
             </span>
           </div>
 
@@ -45,18 +53,18 @@ const Username = () => {
                 {...formik.getFieldProps("username")}
                 className={styles.textbox}
                 type="text"
-                placeholder="Username"
+                placeholder={user_name.username_placeholder}
               />
               <button className={styles.btn} type="submit">
-                Let's Go
+              {user_name.next}
               </button>
             </div>
 
             <div className="text-center py-4">
               <span className="text-gray-500">
-                Not a member?
+              {user_name.noMember}
                 <Link className={styles.link} to="/register">
-                  Register Now
+                {user_name.register}
                 </Link>
               </span>
             </div>
