@@ -3,60 +3,60 @@ import emoji from "react-easy-emoji";
 const user_name = {
     title1 : "ミル",
     title2 : "コマ",
-    content : "私たちとつながって、さらに詳しく調べてください。",
-    next : "行こう",
-    noMember : "会員ではありませんか？",
-    register : "今すぐ登録",
-    username_placeholder : "ユーザー名",
+    content : "Connect with us to find out more.",
+    next : "Let's go",
+    noMember : "Not a member?",
+    register : "Register now",
+    username_placeholder : "Username",
 }
 
 const password_page = {
-    loginSuccess : "ログイン成功しました…!",
-    passError : "パスワードが一致しません!",
-    content : "私たちとつながって、さらに詳しく調べてください。",
-    password_placeholder : "パスワード",
-    signin : "サインイン",
-    forgotPassword : "パスワードをお忘れですか?",
-    recoveryNow : "今すぐ回復する",
-    isLoading : "読み込み中です"
+    loginSuccess : "Login succeeded...!",
+    passError : "Passwords do not match!",
+    content : "Connect with us to find out more.",
+    password_placeholder : "Password",
+    signin : "Sign in",
+    forgotPassword : "Did you forget your password?",
+    recoveryNow : "Recover Now",
+    isLoading : "Loading"
 }
 
 const reset_page = {
-    resetSuccess : "リセット成功…！",
-    error : "リセットできませんでした!",
-    isLoading : "読み込み中です",
-    reset : "リセット",
-    enterNewPassword : "新しいパスワードを入",
-    newPassword : "新しいパスワード",
-    confirmPassword : "パスワードを繰り返す",
-    signin : "サインイン",
+    resetSuccess : "Successful reset...!",
+    error : "Could not reset!",
+    isLoading : "Loading",
+    reset : "Reset",
+    enterNewPassword : "Enter new password",
+    newPassword : "New Password",
+    confirmPassword : "Repeat password",
+    signin : "Sign in",
 }
 
 const recovery_page = {
-    otpMsgSuccess : "OTP があなたのメールに送信されました。",
-    otpMsgError : "OTP の生成中に問題が発生しました。",
-    otpConfirmSuccess : "検証成功！",
-    optConfirmError : "OTP が間違っています! もう一度メールをチェックしてください！",
-    otpCouldnotSend : "送信できませんでした!",
-    otpInputLabel : "OTP を入力してパスワードを回復します。",
-    recoveryLabel : "回復",
-    otpEnterComment : "電子メール アドレスに送信された 4 桁の OTP を入力します。",
-    otpResendComment : "OTP が取得できない場合",
-    otpResendLabel : "再送信します",
-    sendingLabel : "送信中..."
+    otpMsgSuccess : "OTP has been sent to your email.",
+    otpMsgError : "Problem occurred while generating OTP.",
+    otpConfirmSuccess : "Verification successful!",
+    optConfirmError : "Incorrect OTP! Please check your email again!",
+    otpCouldnotSend : "Could not send!",
+    otpInputLabel : "Enter your OTP to recover your password.",
+    recoveryLabel : "Recovery",
+    otpEnterComment : "Enter the 4-digit OTP sent to your email address.",
+    otpResendComment : "If you can't get OTP",
+    otpResendLabel : "Resend",
+    sendingLabel : "Sending..."
 }
 
 const register_page = {
-    creating : "作成しています…",
-    registerSuccess : "無事に登録完了…！",
-    registerError : "登録できませんでした。",
-    register : "登録",
-    registerComment :"ぜひご参加ください！",
-    email : "メールアドレス",
-    username : "ユーザー名",
-    password : "パスワード",
-    alreadyRegister : "すでに登録していますか?",
-    loginNow : "今すぐログイン"
+    creating : "Creating...",
+    registerSuccess : "Registration completed successfully...!",
+    registerError : "Registration failed.",
+    register : "Register",
+    registerComment :"Please join us!",
+    email : "Email",
+    username : "Username",
+    password : "Password",
+    alreadyRegister : "Already registered?",
+    loginNow : "Log in now"
 }
 
 export {
